@@ -1,0 +1,23 @@
+name: Auto-sync with upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 00:00 UTC 自动跑一次
+  workflow_dispatch:       # 也支持手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main        # 如果原仓库是 master，请改成 master
+
+      - name: Sync upstream
+        run: |
+          git remote add upstream https://github.com/mursor1985/LIVE.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main --no-edit
+          git push origin main
