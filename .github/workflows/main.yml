@@ -46,6 +46,12 @@ jobs:
                     echo "🔧 已将 $outfile 中的 live.ottiptv.cc 替换为 yylunbo.ottiptv.cc"
                   fi
 
+                  # ---- douyuyqk.m3u 额外处理 ----
+                  if [ "$outfile" = "douyuyqk.m3u" ]; then
+                    sed -i 's#https://live.ottiptv.cc#https://goodiptv.club#g' "$outfile"
+                    echo "🔧 已将 $outfile 中的 live.ottiptv.cc 替换为 goodiptv.club"
+                  fi
+
                   return 0
                 fi
               fi
