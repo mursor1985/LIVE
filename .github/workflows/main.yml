@@ -22,7 +22,7 @@ jobs:
           echo "🎵 开始下载 IPTV 播放列表..."
 
           base="https://live.ottiptv.cc"
-          files=("huyayqk.m3u" "yylunbo.m3u" "douyuyqk.m3u" "bililive.m3u")
+          files=("yylunbo.m3u" "huyayqk.m3u" "douyuyqk.m3u" "bililive.m3u")
 
           # ---- 只在下载成功后才覆盖原文件 ----
           download_with_retry () {
